@@ -25,7 +25,7 @@ pipeline {
             stage('dependencyTrackPublisher') {
             steps {
                 withCredentials([string(credentialsId: 'api-key', variable: 'API_KEY')]) {
-                    dependencyTrackPublisher artifact: 'dependency-check-report.xml', projectName: 'test', projectVersion: '1', synchronous: true, dependencyTrackApiKey: API_KEY, projectProperties: [tags: ['tag1', 'tag2']]
+                    dependencyTrackPublisher artifact: 'dependency-check-report.xml', projectName: 'webgoat', projectVersion: '1', synchronous: true, dependencyTrackApiKey: API_KEY
                 }
             }
     
