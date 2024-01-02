@@ -19,8 +19,6 @@ services:
           memory: 12288m
         reservations:
           memory: 8192m
-      restart_policy:
-        condition: on-failure
     ports:
       - '8081:8080'
     volumes:
