@@ -22,11 +22,11 @@ pipeline {
                     --prettyPrint''', odcInstallation: 'owasp'
                 
       }
-            cat > payload.json <<__HERE__
+sh '''cat > payload.json <<__HERE__
 {
   "project": "webgoat",
   "scan": "$(cat dependency-check-report.xml |base64 -w 0 -)"
-}
+}'''
     }
         
             stage('dependencyTrackPublisher') {
