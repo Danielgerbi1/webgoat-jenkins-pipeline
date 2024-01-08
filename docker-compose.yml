@@ -23,7 +23,7 @@ services:
     depends_on:
       - dtrack-apiserver
     environment:
-      - API_BASE_URL=http://51.17.167.230:8081
+      - API_BASE_URL=http://51.17.115.236:8081
     ports:
       - "8082:8080"
   
