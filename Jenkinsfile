@@ -21,6 +21,7 @@ pipeline {
                     -f 'ALL' 
                     --prettyPrint''', odcInstallation: 'owasp'
     }
+    }
         
             stage('dependencyTrackPublisher') {
             steps {
