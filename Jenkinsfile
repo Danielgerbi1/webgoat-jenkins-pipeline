@@ -20,18 +20,12 @@ pipeline {
                     -s './'
                     -f 'ALL' 
                     --prettyPrint''', odcInstallation: 'owasp'
-       sh '''cat > payload.json <<__HERE__
-{
-  "project": "webgoat",
-  "scan": "$(cat dependency-check-report.xml |base64 -w 0 -)"
-}'''         
-      }
     }
         
             stage('dependencyTrackPublisher') {
             steps {
                 withCredentials([string(credentialsId: 'api-key', variable: 'API_KEY')]) {
-                    dependencyTrackPublisher artifact: 'payload.json', projectName: 'webgoat', projectVersion: '1', synchronous: true, dependencyTrackApiKey: API_KEY
+                    dependencyTrackPublisher artifact: 'dependency-check-report.xml', projectName: 'webgoat', projectVersion: '1', synchronous: true, dependencyTrackApiKey: API_KEY
                 }
             }
     
